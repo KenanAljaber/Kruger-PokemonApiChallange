@@ -11,9 +11,9 @@ const HomeHeader = () => {
 
 
                 <p className="site-desc" >
-                    En esta pagina puedes ver los pokemons mas famosos
-                    con un poco de detalles sobre sus habilidades y
-                    caractisticas, espero que disfrutes tu tour :)</p>
+                    En esta página puedes ver los pokemons más famosos
+                    con un poco de detalles sobre sus habilidades y características,
+                    espero que disfrutes el tour:)</p>
             </div>
 
         </div>

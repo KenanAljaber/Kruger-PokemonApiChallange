@@ -186,7 +186,8 @@ public class FilesLoader {
     private void descriptionGenerator(Pokemon pokemon) {
 
         String disc = String.format(
-                "%s es un pokemon que cuenta con %s habilidades, su peso es %s , y de altura es %s ",
+            
+                "%s es un pokemon que cuenta con %s habilidades, su peso es %s y su altura es %s  ",
                 pokemon.getName(), pokemon.getAbilities().size(), pokemon.getWeight(), pokemon.getHeight());
         pokemon.setDescription(disc);
 

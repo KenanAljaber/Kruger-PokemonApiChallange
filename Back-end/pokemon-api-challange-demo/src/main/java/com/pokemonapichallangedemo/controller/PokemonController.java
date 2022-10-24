@@ -71,4 +71,9 @@ public class PokemonController {
 
     }
 
+    @GetMapping("/welcome")
+    public String test (){
+        return "wlecome";
+    }
+
 }
