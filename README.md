@@ -28,3 +28,6 @@ Al selecionar cualquier pokemon del home page el usuario sera degerido a otra pa
 
 ### About
 Es una pagina que tieie un poco de info sobre mi.
+
+## Heroku link
+[Live-app](https://pokemon-api-challange-kruger.herokuapp.com/)
