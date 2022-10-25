@@ -23,6 +23,8 @@ Este pagina carga todos los datos por medio de un api, que ofrece informacion so
 
 
 ### Pokemon Details
+![PokemonDetailPage](https://user-images.githubusercontent.com/52118245/197687329-480eaaab-0d2a-4d27-8486-51c4452cd5ec.png)
+
 
 Al selecionar cualquier pokemon del home page el usuario sera degerido a otra pagina simple con otros info sobre el pokemon 
 
