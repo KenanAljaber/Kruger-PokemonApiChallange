@@ -144,8 +144,8 @@
     border: 16px solid #ed7f7f;
     border-top: 16px solid #058CFF;
     border-radius: 50%;
-    width: 6rem;
-    height: 6rem;
+    width: 4rem;
+    height: 4rem;
     animation: spin 2s linear infinite;
 
 }
