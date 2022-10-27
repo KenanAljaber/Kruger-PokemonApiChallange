@@ -22,11 +22,13 @@ const reducer = (state, action) => {
 };
 
 const HomeBody = () => {
-    const pokemonsApi = "http://localhost:8080/api-kruger/pokemon" + "/all";
+    const pokemonsApi = "https://pokemon-api-challange.herokuapp.com/api-kruger/pokemon" + "/all";
 
 
     const [state, dispatch] =
         useReducer(reducer, { pokemons: [], firstPokemonIndex: 0, lastPokemonIndex: 10, btnTitle: "Next" });
+
+    const [dataLoaded, setDataLoaded] = useState(false);
 
     //declaring the list that will be updated and filled with the data of the api
     const [pokemons, setPokemons] = useState([]);
@@ -40,17 +42,24 @@ const HomeBody = () => {
     const [searchValue, setSearchValue] = useState("");
     const [searchedClicked, setSearchedClicked] = useState(false);
     //an object that will hold the pokemon that user is loking for
-    let searchedItem = [];
+
 
     //fetching the api data
     useEffect(() => {
+        if (pokemons == undefined) {
+            setDataLoaded(false);
+        }
         //if the user did not searched for any results yet then the page is recently loaded so 
         //get the data from the api
         if (!searchedClicked) {
 
             axios.get(pokemonsApi).then((response) => {
-                console.log(response.data);
+                console.log("useEffect called", response.data);
                 setPokemons(response.data);
+                if (response.data != undefined) {
+                    setDataLoaded(true);
+                }
+
             });
         }
 
@@ -67,8 +76,9 @@ const HomeBody = () => {
     };
 
     function search() {
+        let searchedItem = [];
         //once the user clicked Buscar button, set the setSearchedClicked to the opisite
-        setSearchedClicked(!searchedClicked);
+        //setSearchedClicked(!searchedClicked);
         //If the user will make a search
         if (!searchedClicked) {
             //check wheather the pokemon name exits in the list
@@ -79,18 +89,18 @@ const HomeBody = () => {
                 }
             });
             //pokemon name not found
-            if (searchedItem == null) {
-                console.log("clicked");
-                setPokemons(pokemons);
+            if (searchedItem.length == 0) {
+                console.log("clicked not found setting pokemons to show");
+                //clear the input
+                setSearchValue("");
             }
-            //Pokemon found, update pokemons list, change buscar title also set setSearchedClicked to true
+            //Pokemon found, update pokemons list to show only the pokemon required,
+            // change buscar title and also set setSearchedClicked to true 
             else {
-                console.log("clicked true");
-                console.log(searchedItem.name);
-                const onePokemonList = [searchedItem];
                 setPokemons(searchedItem);
                 setBtnTitle("Cancelar");
-
+                searchedItem = [];
+                setPokemonToSearch("");
                 setSearchedClicked(true);
             }
         }
@@ -114,32 +124,48 @@ const HomeBody = () => {
     }
 
     return (
+
         <div>
-            <div className="searchContainer">
-                <SearchWidget searchHint="Busca tu pokemon favorito..." onchange={onchange} value={searchValue} />
-                <Button title={btnTitle} onClick={search} btnHref="#" /><br />
-            </div>
-            <div className="grid">
-                {
+            {dataLoaded ?
 
-                    pokemons.slice(state.firstPokemonIndex, state.lastPokemonIndex).map(currentItem => {
-                        return (
-                            <div className="item" key={currentItem.id}>
-                                <PokemonHolder btnTitle="Detalles" pokemonName={currentItem.name}
-                                    disc={currentItem.description} textOnImage={currentItem.name}
-                                    btnHref={'/pokemon/' + currentItem.id} imageSrc={currentItem.photo} />
+                (<div>
+                    {console.log(dataLoaded)}
+                    <div className="searchContainer">
+                        <SearchWidget searchHint="Busca tu pokemon favorito..." onchange={onchange} value={searchValue} />
+                        <Button title={btnTitle} onClick={search} btnHref="#" /><br />
+                    </div>
 
-                            </div>
-                        );
-                    })}
-            </div>
-            {!searchedClicked &&
+                    <div className="grid">
+                        {
+
+                            pokemons.slice(state.firstPokemonIndex, state.lastPokemonIndex).map(currentItem => {
+                                return (
+                                    <div className="item" key={currentItem.id}>
+                                        <PokemonHolder btnTitle="Detalles" pokemonName={currentItem.name}
+                                            disc={currentItem.description} textOnImage={currentItem.name}
+                                            btnHref={'/pokemon/' + currentItem.id} imageSrc={currentItem.photo} />
+
+                                    </div>
+                                );
+                            })}
+                    </div> </div>) :
+                <div style={{ display: "flex", placeContent: "center", padding: "100px" }}>
+                    <div className="loader" />
+                </div>
+            }
+
+
+
+
+            {!searchedClicked && dataLoaded &&
                 <div className="next-btn-container">
                     <Button btnHref="#" title={state.btnTitle} onClick={handleNextPage} />
                 </div>
             }
 
         </div>
+
+
     );
 }
 

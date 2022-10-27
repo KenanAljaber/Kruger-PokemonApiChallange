@@ -7,19 +7,25 @@ import axios from "axios";
 const PokemonDetails = () => {
     //getting the pokemon id to load it from the back-end
     let { pokemonId } = useParams();
-    const pokemonUrl = "http://localhost:8080/api-kruger/pokemon" + "/" + pokemonId;
+    const pokemonUrl = "https://pokemon-api-challange.herokuapp.com/api-kruger/pokemon" + "/" + pokemonId;
     const [pokemon, setPokemon] = useState([]);
     const [types, setTypes] = useState([]);
     const [abilities, setAbilities] = useState([]);
+    const [dataLoaded, setDataLoaded] = useState(false);
     const navigate = useNavigate();
 
     //load the api data
     useEffect(() => {
-
+        if (pokemon === undefined) {
+            setDataLoaded(false);
+        }
         axios.get(pokemonUrl).then((response) => {
             setPokemon(response.data);
             setTypes(response.data["types"])
             setAbilities(response.data["abilities"])
+            if (pokemon != undefined) {
+                setDataLoaded(true);
+            }
 
         });
     }, []);
@@ -38,19 +44,24 @@ const PokemonDetails = () => {
     };
 
     return (
+
         <div className="details-body">
 
 
-            <div className="left-side">
-                <img className="listImageClass" src={pokemon["photo"]} />
-            </div>
+
+            
+               
+                <div className="left-side">
+                    
+                    <img className="listImageClass" src={pokemon["photo"]} />
+                </div>
+                
+                {dataLoaded&&
+                <div className="right-side">
+
+                    <h1 className="pokemon-details-name">{pokemon["name"]}</h1>
 
 
-            <div className="right-side">
-
-                <h1 className="pokemon-details-name">{pokemon["name"]}</h1>
-
-                {
 
 
                     <div className="pokemon-details-details" key={pokemonId}>
@@ -63,17 +74,25 @@ const PokemonDetails = () => {
                     </div>
 
 
-                }
 
 
 
-                <Button title="Back" onClick={() => navigate(-1)} btnHref="#" />
-                <Button title="Home" btnColor="#209483" />
-            </div>
 
+                    <Button title="Back" onClick={() => navigate(-1)} btnHref="#" />
+                    <Button title="Home" btnColor="#209483" />
+                </div>
+ 
+}
+                {!dataLoaded&&
+                    <div style={{ display: "flex", placeContent: "center", padding: "100px" }}>
+                    <div className="loader" />
 
+                </div>
+}
+           
 
         </div>
+
     );
 
 }

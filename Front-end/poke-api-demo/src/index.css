@@ -2,42 +2,42 @@
 
 .app {
     font-family: Poppins;
-    padding:15px;
+    padding: 15px;
 
 }
+
 .appLogo {
     min-width: 20px;
-    max-width:50%;
+    max-width: 50%;
 }
+
 .headerContainer {
-padding:10px;
-margin-top:10px;
-
-
-
+    padding: 10px;
+    margin-top: 10px;
 }
 
 .site-desc {
     min-width: 15rem;
-        color: #058CFF;
-        max-width:40%;
-        word-wrap: break-word;
-        margin:0 auto;
-        color:#058CFF;
+    color: #058CFF;
+    max-width: 40%;
+    word-wrap: break-word;
+    margin: 0 auto;
+    color: #058CFF;
 }
+
 .title-description {
     text-align: center;
 }
 
-    .title-description h1 {
-        font-size: clamp(1rem,1.5rem,5rem);
-        margin: 0 auto;
+.title-description h1 {
+    font-size: clamp(1rem, 1.5rem, 5rem);
+    margin: 0 auto;
 
-    }
+}
 
 .button {
     border-radius: 8px;
-   background-color: #058CFF;
+    background-color: #058CFF;
     color: white;
     border-style: none;
     font-family: Poppins;
@@ -45,17 +45,19 @@ margin-top:10px;
     display: inline-block;
     font-size: 1rem;
 }
-    .button:hover {
-        background-color:indianred;
-        
-    }
 
-.next-btn-container{
+.button:hover {
+    background-color: indianred;
+
+}
+
+.next-btn-container {
     display: flex;
     place-content: center;
     padding: 10px;
     margin-top: 10px;
 }
+
 .next-btn-container button {
     width: 8rem;
 }
@@ -72,30 +74,33 @@ margin-top:10px;
 .input:focus {
     border: 1px solid red;
 }
+
 .SearchWidgetContainer {
     padding: 5px;
-    
-    text-align:center;
+
+    text-align: center;
 }
+
 .searchContainer {
     text-align-last: center;
     display: flex;
     margin: 0 auto;
     align-content: center;
     align-items: center;
-    place-content:center;
-    margin-top:10px;
-   
+    place-content: center;
+    margin-top: 10px;
+
 }
-    .searchContainer Button {
-       margin:0 auto;
-       text-align:center;
-    }
+
+.searchContainer Button {
+    margin: 0 auto;
+    text-align: center;
+}
 
 ::placeholder {
     color: #835B5B;
-    font-size:0.8rem;
-    float:left;
+    font-size: 0.8rem;
+    float: left;
     font-family: Poppins;
 }
 
@@ -105,10 +110,11 @@ margin-top:10px;
     width: 50%;
     border-radius: 20px;
 }
+
 .disc-paragraph {
     color: #FF0505;
-    font-weight:normal;
-    font-size:clamp(0.7rem,1rem,1.2rem);
+    font-weight: normal;
+    font-size: clamp(0.7rem, 1rem, 1.2rem);
 }
 
 .item {
@@ -118,7 +124,7 @@ margin-top:10px;
 
 .item-title {
     color: #058CFF;
-    margin-top:20px;
+    margin-top: 20px;
 }
 
 .grid {
@@ -126,12 +132,32 @@ margin-top:10px;
     margin: 0 auto;
     display: grid;
     gap: 1rem;
-    margin-top:10px;
-    place-content:center;
+    margin-top: 10px;
+    place-content: center;
 }
 
 .Body {
-    margin: 1000px ;
+    margin: 1000px;
+}
+
+.loader {
+    border: 16px solid #ed7f7f;
+    border-top: 16px solid #058CFF;
+    border-radius: 50%;
+    width: 6rem;
+    height: 6rem;
+    animation: spin 2s linear infinite;
+
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 
@@ -147,23 +173,27 @@ margin-top:10px;
     text-align: center;
     align-self: center;
 }
+
 .right-side {
     align-self: flex-start;
     text-align: center;
 }
+
 .pokemon-details-name {
     color: #058CFF;
-    
+
 }
+
 .pokemon-details-details {
     padding-bottom: 5px;
     text-align: start;
 }
+
 .pokemon-details-disc {
     font-weight: bold;
     color: white;
     word-spacing: 8px;
-    font-size: clamp(0.8rem,1.3rem,2rem);
+    font-size: clamp(0.8rem, 1.3rem, 2rem);
     background: #CD5C5C;
     border-radius: 8px;
     margin: 5px;
@@ -171,11 +201,13 @@ margin-top:10px;
     gap: 10rem;
     width: fit-content;
 }
-    .pokemon-details-disc span {
-        color: #620c0c;
-        padding: 2px 8px 2px 2px;
-        font-weight: normal;
-    }
+
+.pokemon-details-disc span {
+    color: #620c0c;
+    padding: 2px 8px 2px 2px;
+    font-weight: normal;
+}
+
 .right-side button {
     min-width: 60%;
     margin-top: 35px;
@@ -205,7 +237,7 @@ margin-top:10px;
 
     .details-body {
         margin: 0 auto;
-        display:grid;
+        display: grid;
     }
 }
 
@@ -213,25 +245,31 @@ margin-top:10px;
     .grid {
         grid-template-columns: repeat(1, 1fr);
     }
+
     .listImageClass {
         min-width: 25rem;
-        
+
     }
+
     .item {
-        padding:0.2rem;
+        padding: 0.2rem;
     }
+
     .appLogo {
         width: 50%;
     }
+
     .left-side {
         display: flex;
     }
+
     .details-body {
         margin: 0 auto;
         display: grid;
     }
 
 }
+
 @media (min-width: 900px) {
     .grid {
         grid-template-columns: repeat(3, 1fr);
@@ -242,8 +280,9 @@ margin-top:10px;
     }
 
     .left-side img {
-        max-width:25rem;
+        max-width: 25rem;
     }
+
     .listImageClass {
         width: 100%;
     }
@@ -253,19 +292,22 @@ margin-top:10px;
     .grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
     .listImageClass {
         min-width: 14rem;
     }
+
     .appLogo {
         width: 30%;
     }
+
     .details-body {
         display: grid;
     }
-    
-}*/
 
-@media (min-width: 1000px) {
+}
+
+*/ @media (min-width: 1000px) {
     .listImageClass {
         width: 80%;
     }
@@ -273,9 +315,8 @@ margin-top:10px;
     .left-side {
         width: 50%;
     }
-        .left-side img {
-            max-width: 80%;
-        }
+
+    .left-side img {
+        max-width: 80%;
+    }
 }
-
-
