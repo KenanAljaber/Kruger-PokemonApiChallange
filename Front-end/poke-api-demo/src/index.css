@@ -109,6 +109,7 @@
     border-color: indianred;
     width: 50%;
     border-radius: 20px;
+    margin: 0 auto;
 }
 
 .disc-paragraph {
@@ -120,11 +121,20 @@
 .item {
     text-align: center;
     padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgb(205 92 92 / 50%);
+    transition: 0.25s;
+}
+
+.item:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.45);
+    transform:scale(1.009);
 }
 
 .item-title {
     color: #058CFF;
     margin-top: 20px;
+    font-size: 1.4rem;
 }
 
 .grid {
@@ -141,11 +151,11 @@
 }
 
 .loader {
-    border: 16px solid #ed7f7f;
-    border-top: 16px solid #058CFF;
+    border: 10px solid #ed7f7f;
+    border-top: 10px solid #058CFF;
     border-radius: 50%;
-    width: 4rem;
-    height: 4rem;
+    width: 2rem;
+    height: 2rem;
     animation: spin 2s linear infinite;
 
 }
@@ -160,16 +170,42 @@
     }
 }
 
+.details-card-container{
+    text-align-last: center;
+    margin-top: 25px;
+    position: relative;
+}
+.next-icon-container{
+    z-index: 1000;
+    margin: px;
+    position: absolute;
+    top: 180px;
+    right: -40px;
+}
 
-.details-body {
-    display: flex;
-    margin: 0 auto;
-    place-content: center;
+.next-icon{
+    width: 4em;
+     height: 4em;
+      color: #058CFF ;
+}
+.next-icon:hover{
+    color: #CD5C5C;;
+}
+.details-body-card {
+    display: inline-flex;
+    padding: 30px;
+    border-radius: 10px;
+    transition: 0.30s;
+    box-shadow: 0 4px 8px 0 rgb(5 140 255 / 50%);
+    position: relative;
+}
+
+.details-body-card:hover{
+    box-shadow: 0 4px 8px 0  rgba(0,0,0,0.45);
+    transform: scale(1.009);
 }
 
 .left-side {
-    padding: 10px;
-    min-width: 300px;
     text-align: center;
     align-self: center;
 }
@@ -214,18 +250,17 @@
 }
 
 
+
 @media (max-width: 420px) {
     .grid {
         grid-template-columns: repeat(1, 1fr);
     }
 
     .listImageClass {
-        min-width: 20rem;
+        min-width: 15rem;
     }
 
-    .item {
-        padding: 0.2rem;
-    }
+    
 
     .appLogo {
         width: 50%;
@@ -239,6 +274,14 @@
         margin: 0 auto;
         display: grid;
     }
+    .details-body-card{
+        display: block;
+    }
+    .next-icon-container{
+        margin-top: 250px;
+        margin-right: 15px;
+    }
+    
 }
 
 @media (min-width: 420px) and (max-width: 599px) {
@@ -247,7 +290,7 @@
     }
 
     .listImageClass {
-        min-width: 25rem;
+        min-width: 15rem;
 
     }
 
@@ -258,14 +301,16 @@
     .appLogo {
         width: 50%;
     }
-
-    .left-side {
-        display: flex;
-    }
-
     .details-body {
         margin: 0 auto;
         display: grid;
+    }
+    .details-body-card{
+        display: block;
+    }
+    .next-icon-container{
+        margin-top: 250px;
+        margin-right: 0px;
     }
 
 }
@@ -279,12 +324,8 @@
         width: 20%;
     }
 
-    .left-side img {
-        max-width: 25rem;
-    }
-
     .listImageClass {
-        width: 100%;
+        min-width: 16rem;
     }
 }
 
@@ -294,7 +335,7 @@
     }
 
     .listImageClass {
-        min-width: 14rem;
+        min-width: 16rem;
     }
 
     .appLogo {
@@ -304,19 +345,9 @@
     .details-body {
         display: grid;
     }
+    .next-icon-container{
+        margin-top: 50px;
+    }
 
 }
 
-*/ @media (min-width: 1000px) {
-    .listImageClass {
-        width: 80%;
-    }
-
-    .left-side {
-        width: 50%;
-    }
-
-    .left-side img {
-        max-width: 80%;
-    }
-}

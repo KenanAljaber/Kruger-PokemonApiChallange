@@ -2,7 +2,7 @@ import Home from "./components/Home/Home"
 import logo from "./assets/logo.png"
 import React from "react";
 import PokemonDetails from "./components/PokemonDetails/PokemonDetails"
-import { BrowserRouter, Router, Route, Routes, Link } from 'react-router-dom';
+import {  Route, Routes, Link } from 'react-router-dom';
 import About from "./components/About/About"
 function App() {
     return (
@@ -20,7 +20,7 @@ function App() {
             <Routes>
                 <Route exact path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/pokemon/:pokemonId" element={<PokemonDetails />} />
+                <Route path="/pokemon/:pokemonId" element={<PokemonDetails />} exact={false} />
             </Routes>
             
         </div>

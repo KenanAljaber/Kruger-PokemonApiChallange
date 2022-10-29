@@ -22,7 +22,7 @@ const reducer = (state, action) => {
 };
 
 const HomeBody = () => {
-    const pokemonsApi = "https://pokemon-api-challange.herokuapp.com/api-kruger/pokemon" + "/all";
+    const pokemonsApi = "https://pokemon-api-challange.herokuapp.com/api-kruger/pokemon/all";
 
 
     const [state, dispatch] =
@@ -46,7 +46,7 @@ const HomeBody = () => {
 
     //fetching the api data
     useEffect(() => {
-        if (pokemons == undefined) {
+        if (pokemons === undefined) {
             setDataLoaded(false);
         }
         //if the user did not searched for any results yet then the page is recently loaded so 
@@ -56,7 +56,7 @@ const HomeBody = () => {
             axios.get(pokemonsApi).then((response) => {
                 console.log("useEffect called", response.data);
                 setPokemons(response.data);
-                if (response.data != undefined) {
+                if (response.data !== undefined) {
                     setDataLoaded(true);
                 }
 
@@ -68,7 +68,7 @@ const HomeBody = () => {
 
     //Method to handle the next page by calling the dispatch method
     const handleNextPage = () => {
-        if (state.btnTitle == "Next") {
+        if (state.btnTitle === "Next") {
             dispatch({ type: ACTIONS.NEXTPAGE });
         } else {
             dispatch({ type: ACTIONS.PREVIOUSPAGE })
@@ -89,7 +89,7 @@ const HomeBody = () => {
                 }
             });
             //pokemon name not found
-            if (searchedItem.length == 0) {
+            if (searchedItem.length === 0) {
                 console.log("clicked not found setting pokemons to show");
                 //clear the input
                 setSearchValue("");
