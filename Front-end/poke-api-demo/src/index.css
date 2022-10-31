@@ -107,7 +107,7 @@
 .listImageClass {
     border: solid;
     border-color: indianred;
-    width: 50%;
+   
     border-radius: 20px;
     margin: 0 auto;
 }
@@ -249,6 +249,114 @@
     margin-top: 35px;
 }
 
+.game-card-container{
+    
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgb(205 92 92 / 50%);
+    transition: 0.25s;
+    width: 85%;
+    margin: 50px auto;
+    text-align: center;
+    color: #FF0505;
+    
+}
+.game-image-constainer img{
+    width:20%;
+}
+
+.game-card-container-correct{
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(41, 212, 50, 0.8);
+    transition: 0.25s;
+    width: 85%;
+    margin: 50px auto;
+    text-align: center;
+    color: #61ff05;
+}
+
+.game-card-container-wrong{
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(241, 0, 12, 0.8);
+    transition: 0.25s;
+    width: 85%;
+    margin: 50px auto;
+    text-align: center;
+    color: #ff0505;
+    animation: rotation 0.8s linear  1 ;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }50%{
+        transform: rotate(45deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+    
+}
+
+.game-image-constainer{
+    text-align: center;
+}
+
+.game-disc-container{
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+.game-disc-container p{
+    
+    color: #0057a1;
+    font-weight: 600;
+    font-size: clamp(1rem, 1.2rem, 1.4rem);
+    text-align: center;
+}
+
+.game-bottom-container{
+   
+}
+
+.game-options-container{
+    text-align: center ;
+    margin-top: 30px;
+    
+}
+
+.game-option{
+    background: #058CFF;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px;
+    color: wheat;    
+}
+
+.test{
+    float: right;
+    width: 75px;
+    height: 28px;
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 3px;
+    border-radius: 8px;
+    background-color: #058CFF;
+    color: white;
+    border-style: none;
+    font-family: Poppins; 
+    margin-right: 8px;
+    transition: 2s;
+    
+}
+
+.test:hover{
+    transform: rotate(360deg) ;
+    background: #CD5C5C;   
+}
+
 
 
 @media (max-width: 420px) {
@@ -280,6 +388,10 @@
     .next-icon-container{
         margin-top: 250px;
         margin-right: 15px;
+    }
+
+    .game-option{
+        font-size: 0.6rem;
     }
     
 }

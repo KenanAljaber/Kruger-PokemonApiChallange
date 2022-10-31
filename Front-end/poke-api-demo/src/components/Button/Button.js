@@ -1,10 +1,10 @@
 import PropsTypes from "prop-types"
 import React from "react";
 
-const Button = ({ title, btnHref, onClick, btnColor }) => {
+const Button = ({ title, btnHref, onClick, btnColor,styleClassName }) => {
     return (
         <a href={btnHref}>
-            <button className="button" onClick={onClick} style={{ backgroundColor: { btnColor } }}>{title}</button>
+            <button className={styleClassName} onClick={onClick} style={{ backgroundColor: { btnColor } }}>{title}</button>
         </a >
 
     );
@@ -17,6 +17,7 @@ Button.defaultProps = {
     title: "Detalles",
     btnHref: "/",
     btnColor: "#058CFF",
+    styleClassName: "button",
 
 }
 

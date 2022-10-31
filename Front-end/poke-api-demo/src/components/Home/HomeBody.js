@@ -22,7 +22,7 @@ const reducer = (state, action) => {
 };
 
 const HomeBody = () => {
-    const pokemonsApi = "https://pokemon-api-challange.herokuapp.com/api-kruger/pokemon/all";
+    const pokemonsApi = "https://<applink>/api-kruger/pokemon/all";
 
 
     const [state, dispatch] =
